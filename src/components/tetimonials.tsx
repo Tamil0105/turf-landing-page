@@ -1,18 +1,33 @@
 
 
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from '@studio-freight/lenis';
 import _ from 'lodash';
-import { MdMusicNote, MdMusicOff } from 'react-icons/md';
+import '../index.css'
 import TextHoverAnimation from './textHoverAnimation';
-import { FaPause, FaPlay } from 'react-icons/fa';
-
+import { useTestimonials } from '@/hook/useTestimonials';
+import VideoCard from './videoCard/main';
+type Testimonial = {
+    id: number;
+    authorName: string;
+    content: string;
+    rating: number;
+    createdAt: Date;
+    fileType: "image" | "video" | "youtube" | "instagram";
+    mediaUrl: string;
+  };
 gsap.registerPlugin(ScrollTrigger);
 
 const Testimonials: React.FC = () => {
+
+    const {queryClient} = useTestimonials()
+
+    const data =  (queryClient.getQueryData(['testimonials'])as Testimonial[])??[] 
+
+    console.log(data)
   useEffect(() => {
     // Initialize Lenis smooth scrolling
     const lenis = new Lenis({ duration: 1.2 });
@@ -86,9 +101,9 @@ const Testimonials: React.FC = () => {
               <div className="gsap__bl">
                 <div className="gsap__inner">
                   <div className="gsap__track">
-                    {Array.from({ length: 8 }).map((_,) => (
-                   <div className="t flex m-4 ">
-                      <VideoCard videoSrc={`https://video.wixstatic.com/video/4c43d3_e63e67f577324499b6662c4ae08a9b2f/360p/mp4/file.mp4`} />
+                    {Array?.from(data)?.map((t,) => (
+                   <div className=" flex m-4 ">
+                      <VideoCard videoSrc={t.mediaUrl} />
 
                  </div>
                     ))}
@@ -111,48 +126,8 @@ const Testimonials: React.FC = () => {
     </div>
   );
 };
-const VideoCard: React.FC<{ videoSrc: string }> = ({ videoSrc }) => {
-  const videoRef = useRef<HTMLVideoElement | null>(null);
-  const [isPlaying, setIsPlaying] = useState(true); // Start with video playing
-  const [isMuted, setIsMuted] = useState(true); // Start with video muted
 
-  const togglePlay = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
-    }
-  };
 
-  const toggleMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !isMuted; // Toggle muted state
-      setIsMuted(!isMuted); // Update state
-    }
-  };
 
-  return (
-    <div className="video-card">
-    
-      <video 
-        ref={videoRef}
-        src={videoSrc} 
-        loop 
-        autoPlay // Autoplay the video
-        muted={isMuted} // Control mute based on state
-        className="video" 
-      />
-      <button className="play-button flex justify-center items-center" onClick={togglePlay}>
-        {isPlaying ? <FaPause/> : <FaPlay/>}
-      </button>
-      <button className="mute-button" onClick={toggleMute}>
-        {isMuted ? <MdMusicOff/> : <MdMusicNote/>} {/* Show sound icon based on mute state */}
-      </button>
-    </div>
-  );
 
-};
 export default Testimonials;
