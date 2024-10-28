@@ -9,6 +9,7 @@ import Preloader from "./components/preLoading";
 import PageWrapper from "./components/pageWrapper";
 import ScrollProgress from "./components/scrollProgress";
 import AboutUs from "./components/aboutUs";
+import Testimonials from "./components/tetimonials";
 const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -48,6 +49,7 @@ const App: React.FC = () => {
             </div>
           </PageWrapper>
 
+         
           <PageWrapper>
             <div id="aboutUs">
               <AboutUs/>
@@ -60,11 +62,20 @@ const App: React.FC = () => {
             </div>
           </PageWrapper>
 
+         
+
+          <div id="tetimonials">
+              <Testimonials />
+            </div>
           <PageWrapper>
             <div id="contact">
               <Contact />
             </div>
           </PageWrapper>
+          {/* <PageWrapper> */}
+           
+            
+          {/* </PageWrapper> */}
           {/* <div id="home">
             <Home />
           </div>

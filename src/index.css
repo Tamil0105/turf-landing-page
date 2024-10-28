@@ -172,3 +172,171 @@ body {
   }
 }
 
+:root {
+	--pr-color: #fff;
+	--second-color: #0a0a0a;
+	--color-n3: #26cf6c;
+	
+}
+
+* {
+	box-sizing: border-box;
+	font-weight: 800;
+	margin: 0;
+	padding: 0;
+	font-feature-settings: 'pnum' on, 'lnum' on;
+}
+
+body {
+	background: var(--second-color);
+}
+
+.wrapp {
+	position: relative;
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+}
+
+
+
+.title {
+	position: relative;
+	margin: 0;
+	font-size: var(--fz-big);
+	line-height: 1;
+	color: var(--pr-color);
+	text-transform: uppercase;
+	mix-blend-mode: difference;
+	z-index: 2;
+}
+
+.title .stroke {
+	display: block;
+	color: transparent;
+	-webkit-text-stroke: 1px var(--color-n3);
+}
+
+.main {
+	padding-bottom: var(--indent2);
+}
+
+.content {
+	width: 100%;
+	height: auto;
+	padding: 0 var(--indent);
+}
+
+
+
+
+
+
+/* scroll trigger *************************/
+/*****************************************/
+.section-slider {
+	height: auto;
+	padding: 30px 0;
+}
+
+.gsap__slider {
+	height: 80vh;
+}
+
+.gsap__bl {
+	width: 100%;
+}
+
+.gsap__inner,
+.gsap__track {
+	display: flex;
+}
+
+.video-card {
+  position: relative;
+  width: 300px; /* Width of the phone screen */
+  height: 500px; /* Height of the phone screen */
+  border-radius: 30px; /* Rounded corners for a phone look */
+  overflow: hidden; /* Ensures the video doesn't overflow the card */
+  box-shadow: 0 4px 20px rgba(17, 51, 4, 0.336); /* Optional shadow for depth */
+  background-color: #000; /* Background color */
+  transition: transform 0.3s ease; /* Smooth transition for transform */
+}
+
+.video-card:hover {
+  transform: translateY(-20px); /* Move up slightly on hover */
+}
+
+.video-card video {
+  position: absolute; /* Positioning for the video */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the video covers the card */
+  z-index: 1; /* Ensure video is below the play button */
+}
+
+.mute-button {
+  position: absolute; /* Positioning for the play button */
+  top: 95%;
+  left: 15%;
+  transform: translate(-50%, -50%); /* Center the button */
+  border: none; /* No border */
+  border-radius: 50%; /* Circular button */
+  width: 60px; /* Button size */
+  height: 60px; /* Button size */
+  font-size: 24px; /* Play icon size */
+  color: #dad5d5; /* Play icon color */
+  cursor: pointer; /* Pointer on hover */
+  z-index: 2; /* Ensure button is above the video */
+  outline: none; /* Remove outline */
+}
+.play-button {
+  position: absolute; /* Positioning for the play button */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the button */
+  background-color: rgba(141, 137, 137, 0.7); /* Semi-transparent background */
+  border: none; /* No border */
+  border-radius: 50%; /* Circular button */
+  width: 60px; /* Button size */
+  height: 60px; /* Button size */
+  font-size: 24px; /* Play icon size */
+  color: #000; /* Play icon color */
+  cursor: pointer; /* Pointer on hover */
+  z-index: 2; /* Ensure button is above the video */
+  outline: none; /* Remove outline */
+}
+.play-button:hover {
+  background-color: rgba(255, 255, 255, 0.9); /* Change background on hover */
+}
+.mute-button:hover {
+   color: rgba(240, 232, 232, 0.9); /* Change background on hover */
+}
+.gsap__item {
+  position: relative;
+  width: 450px; /* Adjust as needed */
+  background: #fff; /* Background color */
+  will-change: transform;
+  border-radius: 30px; /* Rounded corners for items */
+}
+
+.gsap__item-num {
+  position: absolute;
+  top: 15px;
+  left: 40px;
+  font-size: 50px;
+  color: var(--color-n3);
+  opacity: 0.5;
+  z-index: 3;
+}
+
+/* Additional styles for the slider and other elements */
+.gsap_slider .content,
+.gsap_h,
+.gsap__bl,
+.gsap__inner,
+.gsap__item {
+  height: 100%;
+}
