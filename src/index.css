@@ -172,3 +172,246 @@ body {
   }
 }
 
+.wrapp {
+	position: relative;
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+}
+
+
+
+.title {
+	position: relative;
+	margin: 0;
+	font-size: var(--fz-big);
+	line-height: 1;
+	color: var(--pr-color);
+	text-transform: uppercase;
+	mix-blend-mode: difference;
+	z-index: 2;
+}
+
+.title .stroke {
+	display: block;
+	color: transparent;
+	-webkit-text-stroke: 1px var(--color-n3);
+}
+
+.main {
+	padding-bottom: var(--indent2);
+}
+
+.content {
+	width: 100%;
+	height: auto;
+	padding: 0 var(--indent);
+}
+
+
+
+
+
+
+/* scroll trigger *************************/
+/*****************************************/
+.section-slider {
+	height: 80vh;
+	padding: 30px 0;
+}
+
+.gsap__slider {
+	height: 80vh;
+}
+
+.gsap__bl {
+	width: 100%;
+}
+
+.gsap__inner,
+.gsap__track {
+	display: flex;
+}
+
+.video-card {
+  position: relative;
+  width: 300px; /* Width of the phone screen */
+  height: 500px; /* Height of the phone screen */
+  overflow: hidden; /* Ensures the video doesn't overflow the card */
+  box-shadow: 0 4px 20px rgba(17, 51, 4, 0.336); /* Optional shadow for depth */
+  background-color: #000; /* Background color */
+  transition: transform 0.3s ease; /* Smooth transition for transform */
+}
+
+.video-card:hover {
+  transform: translateY(-20px); /* Move up slightly on hover */
+}
+
+.video-card video {
+  position: absolute; /* Positioning for the video */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the video covers the card */
+  z-index: 1; /* Ensure video is below the play button */
+}
+
+.mute-button {
+  position: absolute; /* Positioning for the play button */
+  top: 95%;
+  left: 15%;
+  transform: translate(-50%, -50%); /* Center the button */
+  border: none; /* No border */
+  border-radius: 50%; /* Circular button */
+  width: 60px; /* Button size */
+  height: 60px; /* Button size */
+  font-size: 24px; /* Play icon size */
+  color: #febc12;; /* Play icon color */
+  cursor: pointer; /* Pointer on hover */
+  z-index: 2; /* Ensure button is above the video */
+  outline: none; /* Remove outline */
+}
+.play-button {
+  position: absolute; /* Positioning for the play button */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the button */
+  background-color: rgba(141, 137, 137, 0.7); /* Semi-transparent background */
+  border: none; /* No border */
+  border-radius: 50%; /* Circular button */
+  width: 60px; /* Button size */
+  height: 60px; /* Button size */
+  font-size: 24px; /* Play icon size */
+  color: #febc12;; /* Play icon color */
+  cursor: pointer; /* Pointer on hover */
+  z-index: 2; /* Ensure button is above the video */
+  outline: none; /* Remove outline */
+}
+.play-button:hover {
+  background-color: rgba(255, 255, 255, 0.9); /* Change background on hover */
+}
+.mute-button:hover {
+   color: rgba(240, 232, 232, 0.9); /* Change background on hover */
+}
+.gsap__item {
+  position: relative;
+  width: 450px; /* Adjust as needed */
+  background: #fff; /* Background color */
+  will-change: transform;
+  border-radius: 30px; /* Rounded corners for items */
+}
+
+.gsap__item-num {
+  position: absolute;
+  top: 15px;
+  left: 40px;
+  font-size: 50px;
+  color: var(--color-n3);
+  opacity: 0.5;
+  z-index: 3;
+}
+
+/* Additional styles for the slider and other elements */
+.gsap_slider .content,
+.gsap_h,
+.gsap__bl,
+.gsap__inner,
+.gsap__item {
+  height: 100%;
+}
+
+/* Container styling for light and dark background */
+.slider-container {
+  padding: 5px;
+  background-color: #87898b; /* Light background */
+}
+
+body.dark .slider-container {
+  background-color: #1f2937; /* Dark background */
+}
+
+/* Track styling for light mode (default) */
+.range-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 1px;
+  background: #6366f1; /* Indigo color for light mode */
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.range-slider:focus {
+  outline: none;
+}
+
+/* Dark mode for the track */
+body.dark .range-slider {
+  background: #4f46e5; /* Darker indigo shade for dark mode */
+}
+
+/* Thumb styling for light mode */
+.range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 8px;
+  height: 8px;
+  background-color: #6366f1; /* Indigo color */
+  border-radius: 50%;
+  border: 2px solid #3b82f6; /* Lighter blue border */
+  cursor: pointer;
+}
+
+.range-slider:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 5px rgba(99, 102, 241, 0.8);
+}
+
+/* Dark mode thumb styling */
+body.dark .range-slider::-webkit-slider-thumb {
+  background-color: #4f46e5; /* Lighter shade for dark mode */
+  border-color: #93c5fd; /* Softer blue border for dark mode */
+}
+
+.range-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background-color: #6366f1;
+  border-radius: 50%;
+  border: 2px solid #3b82f6;
+  cursor: pointer;
+}
+
+body.dark .range-slider::-moz-range-thumb {
+  background-color: #4f46e5;
+  border-color: #93c5fd;
+}
+
+/* For Internet Explorer */
+.range-slider::-ms-track {
+  width: 100%;
+  height: 8px;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+.range-slider::-ms-thumb {
+  width: 20px;
+  height: 20px;
+  background-color: #6366f1;
+  border-radius: 50%;
+  border: 2px solid #3b82f6;
+  cursor: pointer;
+}
+
+body.dark .range-slider::-ms-thumb {
+  background-color: #4f46e5;
+  border-color: #93c5fd;
+}
+.section-slider {
+  width: calc(100%); /* Full width of the container */
+  max-width: 800px; /* Adjust this to fit the number of visible cards */
+}
+.video-card {
+  min-width: 250px; /* Width of each card */
+}
